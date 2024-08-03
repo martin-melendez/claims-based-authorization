@@ -68,6 +68,7 @@ public class AuthController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Register(RegistrationDto registrationDto)
     {
         if (!ModelState.IsValid) return View();

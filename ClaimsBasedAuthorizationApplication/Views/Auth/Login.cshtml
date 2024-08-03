@@ -3,6 +3,7 @@
 <h1>Login</h1>
 
 <hr/>
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 <form class="col-xxl-4 col-xl-5 col-lg-6 col-md-8 col-sm-10 col-12" method="post" asp-controller="Auth" asp-action="Login">
     <div class="mb-2">
