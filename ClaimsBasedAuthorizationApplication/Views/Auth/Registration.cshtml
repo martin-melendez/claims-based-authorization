@@ -1,0 +1,30 @@
+@model ClaimsBasesAuthorizationApplication.Dtos.RegistrationDto
+
+<h1>Register</h1>
+
+<hr/>
+
+<form class="col-xxl-4 col-xl-5 col-lg-6 col-md-8 col-sm-10 col-12" method="post" asp-controller="Auth" asp-action="Register">
+    <div class="mb-2">
+        <label asp-for="Email" class="form-label small">Email</label>
+        <input asp-for="Email" class="form-control" type="email">
+        <span asp-validation-for="Email" class="text-danger small"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="Password" class="form-label small">Password</label>
+        <input asp-for="Password" class="form-control" type="password">
+        <span asp-validation-for="Password" class="text-danger small"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="ConfirmPassword" class="form-label small">Confirm password</label>
+        <input asp-for="ConfirmPassword" class="form-control" type="password">
+        <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+    </div>
+    <hr/>
+    <div class="d-grid gap-2 mb-4">
+        <button type="submit" class="btn btn-primary shadow-none">Create Account</button>
+    </div>
+    <div>
+        <p class="small">Already have an account? <a asp-controller="Auth" asp-action="Login" class="link-primary">Sign In</a></p>
+    </div>
+</form>

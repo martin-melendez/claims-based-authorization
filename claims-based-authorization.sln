@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimsBasesAuthorizationApplication", "ClaimsBasesAuthorizationApplication\ClaimsBasesAuthorizationApplication.csproj", "{6AD0B97C-2177-44EA-B363-DDBC2F3D3ADA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimsBasedAuthorizationApplication", "ClaimsBasedAuthorizationApplication\ClaimsBasedAuthorizationApplication.csproj", "{6AD0B97C-2177-44EA-B363-DDBC2F3D3ADA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
