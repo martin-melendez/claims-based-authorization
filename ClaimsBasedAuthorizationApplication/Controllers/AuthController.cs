@@ -28,18 +28,18 @@ public class AuthController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Login(LoginDto model)
+    public async Task<IActionResult> Login(LoginDto loginDto)
     {
         if (!ModelState.IsValid) return View();
 
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == loginDto.Email);
         if (user == null)
         {
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             return View();
         }
 
-        if (_passwordHasher.VerifyHashedPassword(user, user.HashedPassword, model.Password) ==
+        if (_passwordHasher.VerifyHashedPassword(user, user.HashedPassword, loginDto.Password) ==
             PasswordVerificationResult.Failed)
         {
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
@@ -68,11 +68,11 @@ public class AuthController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Register(RegistrationDto model)
+    public async Task<IActionResult> Register(RegistrationDto registrationDto)
     {
         if (!ModelState.IsValid) return View();
 
-        if (UserExists(model.Email))
+        if (UserExists(registrationDto.Email))
         {
             ModelState.AddModelError(nameof(RegistrationDto.Email), "User does already exist.");
             return View();
@@ -80,10 +80,10 @@ public class AuthController : Controller
 
         var user = new User
         {
-            Email = model.Email
+            Email = registrationDto.Email
         };
 
-        user.HashedPassword = _passwordHasher.HashPassword(user, model.Password);
+        user.HashedPassword = _passwordHasher.HashPassword(user, registrationDto.Password);
 
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
