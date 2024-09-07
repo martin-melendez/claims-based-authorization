@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimsBasedAuthorizationApplication", "ClaimsBasedAuthorizationApplication\ClaimsBasedAuthorizationApplication.csproj", "{6AD0B97C-2177-44EA-B363-DDBC2F3D3ADA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AD0B97C-2177-44EA-B363-DDBC2F3D3ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD0B97C-2177-44EA-B363-DDBC2F3D3ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD0B97C-2177-44EA-B363-DDBC2F3D3ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD0B97C-2177-44EA-B363-DDBC2F3D3ADA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
