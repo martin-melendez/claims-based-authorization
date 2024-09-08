@@ -10,12 +10,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClaimsBasesAuthorizationApplication.Controllers;
 
-public class AuthController : Controller
+public class AccountController : Controller
 {
     private readonly ApplicationDbContext _context;
     private readonly IPasswordHasher<User> _passwordHasher;
 
-    public AuthController(ApplicationDbContext context, IPasswordHasher<User> passwordHasher)
+    public AccountController(ApplicationDbContext context, IPasswordHasher<User> passwordHasher)
     {
         _context = context;
         _passwordHasher = passwordHasher;
@@ -39,8 +39,7 @@ public class AuthController : Controller
             return View();
         }
 
-        if (_passwordHasher.VerifyHashedPassword(user, user.HashedPassword, loginDto.Password) ==
-            PasswordVerificationResult.Failed)
+        if (_passwordHasher.VerifyHashedPassword(user, user.HashedPassword, loginDto.Password) == PasswordVerificationResult.Failed)
         {
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             return View();
@@ -53,10 +52,7 @@ public class AuthController : Controller
         };
 
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-        var authProperties = new AuthenticationProperties();
-
-        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-            new ClaimsPrincipal(claimsIdentity), authProperties);
+        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties());
 
         return RedirectToAction("Index", "Home");
     }
@@ -89,7 +85,7 @@ public class AuthController : Controller
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 
-        return RedirectToAction("Login", "Auth");
+        return RedirectToAction("Login", "Account");
     }
 
     [HttpGet]

@@ -21,11 +21,11 @@
 
             @if (isAuthenticated)
             {
-                <a class="btn btn-sm btn-dark" asp-area="" asp-controller="Auth" asp-action="Logout">Sign Out</a>
+                <a class="btn btn-sm btn-dark" asp-area="" asp-controller="Account" asp-action="Logout">Sign Out</a>
             }
             else
             {
-                <a class="btn btn-sm btn-primary" asp-area="" asp-controller="Auth" asp-action="Login">Sign In</a>
+                <a class="btn btn-sm btn-primary" asp-area="" asp-controller="Account" asp-action="Login">Sign In</a>
             }
         </div>
     </nav>
